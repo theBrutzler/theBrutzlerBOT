@@ -256,6 +256,17 @@ def handle_command(message: TwitchMessage):
         print(message.User)
         T = threading.Timer (10,ursprungszustand)
         T.start()
+        
+        global toggle
+        if(toggle==True):
+            output = f'!brutzelbass'
+            send_chat(irc, output, channel_name)()
+            toggle = False
+        else:
+            output = f'!brutzellol'
+            send_chat(irc, output, channel_name)
+            toggle = True
+            
     if "@thebrutzler" in message.Message:
         playsound('icq.wav')
     if message.User == "melli1083":
